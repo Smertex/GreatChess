@@ -2,19 +2,24 @@ package org.example.GameObjects.Figures;
 
 public abstract class Figure {
     //true - white figure, false - black figure
-    protected Boolean color;
+    protected final Boolean color;
     protected Boolean condition;
-    protected int x, y;
-    public Figure(Boolean color, Boolean condition){
-        setColor(color);
+    protected Coordinate coordinate;
+    public Figure(Boolean color, Boolean condition, Coordinate coordinate){
+        this.color = color;
         setCondition(condition);
+        setCoordinate(coordinate);
     }
     abstract void movePattern();
+    public void setCoordinate(Coordinate coordinate) {
+        this.coordinate = coordinate;
+    }
+
+    public Coordinate getCoordinate() {
+        return coordinate;
+    }
     public void setCondition(Boolean condition) {
         this.condition = condition;
-    }
-    public void setColor(Boolean color) {
-        this.color = color;
     }
     public Boolean getColor() {
         return color;

@@ -13,28 +13,25 @@ public class Game {
     private final LogicGame logicGame;
     private Boolean swapMove = true;
 
-    public void move(){
-        if(swapMove){
+    public void move() {
+        if (swapMove) {
             //Ход игрока с белыми фигурами
-            if(firstPlayer.isColor()){
+            if (firstPlayer.isColor()) {
+
+            } else {
 
             }
-            else{
-
-            }
-        }
-        else{
+        } else {
             //Ход игрока с черными фигурами
-            if(!firstPlayer.isColor()){
+            if (!firstPlayer.isColor()) {
 
-            }
-            else{
+            } else {
 
             }
         }
     }
 
-    public Game(){
+    public Game() {
         Random random = new Random();
         boolean color = random.nextBoolean();
 
@@ -44,15 +41,15 @@ public class Game {
 
         this.logicGame = new LogicGame(board);
     }
-    public Game(String name, boolean playerName){
+
+    public Game(String name, boolean playerName) {
         Random random = new Random();
         boolean color = random.nextBoolean();
 
-        if(playerName) {
+        if (playerName) {
             this.firstPlayer = new Player(name, color);
             this.secondPlayer = new Player("Player2", !color);
-        }
-        else{
+        } else {
             this.firstPlayer = new Player("Player1", color);
             this.secondPlayer = new Player(name, !color);
         }
@@ -60,7 +57,8 @@ public class Game {
 
         this.logicGame = new LogicGame(board);
     }
-    public Game(String name1, String name2){
+
+    public Game(String name1, String name2) {
         Random random = new Random();
         boolean color = random.nextBoolean();
 
@@ -70,12 +68,12 @@ public class Game {
 
         this.logicGame = new LogicGame(board);
     }
-    public Game(String name1, String name2, Boolean colorPlayer, Boolean color){
-        if(colorPlayer) {
+
+    public Game(String name1, String name2, Boolean colorPlayer, Boolean color) {
+        if (colorPlayer) {
             this.firstPlayer = new Player(name1, color);
             this.secondPlayer = new Player(name2, !color);
-        }
-        else{
+        } else {
             this.firstPlayer = new Player(name1, !color);
             this.secondPlayer = new Player(name2, color);
         }
@@ -83,24 +81,22 @@ public class Game {
 
         this.logicGame = new LogicGame(board);
     }
-    public Game(String name, boolean playerName, Boolean colorPlayer, Boolean color){
 
-        if(playerName) {
-            if(colorPlayer) {
+    public Game(String name, boolean playerName, Boolean colorPlayer, Boolean color) {
+
+        if (playerName) {
+            if (colorPlayer) {
                 this.firstPlayer = new Player(name, color);
                 this.secondPlayer = new Player("Player2", !color);
-            }
-            else{
+            } else {
                 this.firstPlayer = new Player(name, !color);
                 this.secondPlayer = new Player("Player2", color);
             }
-        }
-        else{
-            if(colorPlayer) {
+        } else {
+            if (colorPlayer) {
                 this.firstPlayer = new Player("Player1", color);
                 this.secondPlayer = new Player(name, !color);
-            }
-            else{
+            } else {
                 this.firstPlayer = new Player("Player1", !color);
                 this.secondPlayer = new Player(name, color);
             }

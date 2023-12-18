@@ -1,8 +1,8 @@
 package org.example.GameObjects.Figures;
 
 public class Elephant extends Figure {
-    public Elephant(Boolean color, Boolean condition) {
-        super(color, condition);
+    public Elephant(Boolean color, Boolean condition, Coordinate coordinate) {
+        super(color, condition, coordinate);
     }
     @Override
     void movePattern() {
