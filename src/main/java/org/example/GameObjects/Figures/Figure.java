@@ -4,7 +4,7 @@ public abstract class Figure {
     //true - white figure, false - black figure
     protected Boolean color;
     protected Boolean condition;
-    protected int x, y, xy;
+    protected int x, y;
     public Figure(Boolean color, Boolean condition){
         setColor(color);
         setCondition(condition);

@@ -71,14 +71,8 @@ public class Board {
             }
         }
     }
-    public void walkX(int x){
-
-    }
-    public void walkY(int y){
-
-    }
-    public void walkXY(int xy){
-
+    public void setBoard(Figure[][] board){
+        this.board = board;
     }
     public Figure[][] getBoard(){
         return this.board;
