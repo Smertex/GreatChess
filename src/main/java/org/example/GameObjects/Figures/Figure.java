@@ -1,5 +1,9 @@
 package org.example.GameObjects.Figures;
 
+import org.example.GameObjects.OtherObjects.Board;
+
+import java.util.ArrayList;
+
 public abstract class Figure {
     //true - white figure, false - black figure
     protected final Boolean color;
@@ -7,10 +11,13 @@ public abstract class Figure {
     protected Coordinate coordinate;
     public Figure(Boolean color, Boolean condition, Coordinate coordinate){
         this.color = color;
-        setCondition(condition);
-        setCoordinate(coordinate);
+        this.condition = condition;
+        this.coordinate = coordinate;
     }
-    abstract void movePattern();
+    public void displacement(Coordinate coordinate){
+        this.coordinate = coordinate;
+    }
+    public abstract ArrayList<Coordinate> existenceMove(Board board);
     public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }

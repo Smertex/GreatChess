@@ -13,20 +13,24 @@ public class Game {
     private final LogicGame logicGame;
     private Boolean swapMove = true;
 
-    public void move() {
+    public void definitionPlayer() {
         if (swapMove) {
             //Ход игрока с белыми фигурами
             if (firstPlayer.isColor()) {
-
+                this.logicGame.move(firstPlayer);
+                this.swapMove = false;
             } else {
-
+                this.logicGame.move(secondPlayer);
+                this.swapMove = false;
             }
         } else {
             //Ход игрока с черными фигурами
             if (!firstPlayer.isColor()) {
-
+                this.logicGame.move(firstPlayer);
+                this.swapMove = true;
             } else {
-
+                this.logicGame.move(secondPlayer);
+                this.swapMove = true;
             }
         }
     }

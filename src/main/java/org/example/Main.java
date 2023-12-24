@@ -1,14 +1,11 @@
 package org.example;
 
-import org.example.Game.Game;
-import org.example.Game.LogicGame;
-import org.example.GameObjects.Figures.Pawn;
+import org.example.GameObjects.OtherObjects.Board;
 
 public class Main {
     public static void main(String[] args) {
+        Board board = new Board();
 
-        Game game = new Game();
-        //LogicGame logicGame = game.getLogicGame();
 
     }
 }
