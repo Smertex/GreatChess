@@ -5,13 +5,9 @@ import org.example.GameObjects.OtherObjects.Board;
 
 import java.util.ArrayList;
 
-public class RookMove implements MovePattern {
+public class GiraffeMove implements MovePattern{
     @Override
     public ArrayList<Coordinate> checkingMoves(Board board, Coordinate coordinate, Boolean color) {
-        ArrayList<Coordinate> coordinates = new ArrayList<>();
-
-
-
-        return coordinates;
+        return null;
     }
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Rook extends Figure {
     public Rook(Boolean color, Boolean condition, Coordinate coordinate) {
-        super(color, condition, coordinate);
+        super(color, coordinate);
     }
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {

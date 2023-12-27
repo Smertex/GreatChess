@@ -2,14 +2,13 @@ package org.example.GameObjects.Figures;
 
 import org.example.GameObjects.Figures.LinkersMove.HorseMove;
 import org.example.GameObjects.Figures.LinkersMove.MovePattern;
-import org.example.GameObjects.Figures.LinkersMove.PawnMove;
 import org.example.GameObjects.OtherObjects.Board;
 
 import java.util.ArrayList;
 
 public class Horse extends Figure {
     public Horse(Boolean color, Boolean condition, Coordinate coordinate) {
-        super(color, condition, coordinate);
+        super(color, coordinate);
     }
 
     @Override
