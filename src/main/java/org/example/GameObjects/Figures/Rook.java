@@ -14,7 +14,7 @@ public class Rook extends Figure {
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new RookMove();
 
-        return new ArrayList<>(movePattern.checkingMoves(board, this.coordinate, this.color));
+        return new ArrayList<>(movePattern.checkingMoves(this.coordinate));
     }
 
 

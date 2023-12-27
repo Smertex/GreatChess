@@ -14,10 +14,15 @@ public class Pawn extends Figure {
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new PawnMove();
-        ArrayList<Coordinate> coordinates =  new ArrayList<>(movePattern.checkingMoves(board, this.coordinate, this.color));
+        ArrayList<Coordinate> coordinates =  new ArrayList<>(movePattern.checkingMoves(this.coordinate));
         coordinates = checkingEmptinessSquare(coordinates, board);
 
         return coordinates;
+    }
+
+    @Override
+    public ArrayList<Coordinate> checkingEmptinessSquare(ArrayList<Coordinate> coordinates, Board board) {
+        return null;
     }
 
     //Пешка
