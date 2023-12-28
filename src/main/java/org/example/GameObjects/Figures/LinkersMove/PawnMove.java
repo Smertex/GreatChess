@@ -1,6 +1,6 @@
 package org.example.GameObjects.Figures.LinkersMove;
 
-import org.example.GameObjects.Figures.Coordinate;
+import org.example.GameObjects.Figures.FuguresUtils.Coordinate;
 import org.example.GameObjects.Figures.FuguresUtils.Shift;
 
 import java.util.ArrayList;

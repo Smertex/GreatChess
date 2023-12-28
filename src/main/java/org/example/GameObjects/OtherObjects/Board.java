@@ -1,6 +1,7 @@
 package org.example.GameObjects.OtherObjects;
 
 import org.example.GameObjects.Figures.*;
+import org.example.GameObjects.Figures.FuguresUtils.Coordinate;
 
 public class Board {
 /*

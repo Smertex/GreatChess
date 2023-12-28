@@ -1,4 +1,4 @@
-package org.example.GameObjects.Figures;
+package org.example.GameObjects.Figures.FuguresUtils;
 
 public class Coordinate {
     private Integer x, y;
