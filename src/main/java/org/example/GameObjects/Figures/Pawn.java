@@ -27,8 +27,8 @@ public class Pawn extends Figure {
         ArrayList<Coordinate> returnedCoordinates = new ArrayList<>();
 
         for(Coordinate cord: coordinates){
-            if(cord.getX() != this.coordinate.getX() && board.getFigure(cord.getY(), cord.getX()) != null){
-                if(board.getFigure(cord.getY(), cord.getX()).getColor()){
+            if(board.getFigure(cord.getY(), cord.getX()) != null && cord.getX() != this.coordinate.getX()){
+                if(board.getFigure(cord.getY(), cord.getX()).getColor() != this.color){
                     returnedCoordinates.add(cord);
                 }
             } else if(cord.getX() == this.coordinate.getX() && board.getFigure(cord.getY(), cord.getX()) == null) {
