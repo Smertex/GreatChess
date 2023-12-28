@@ -21,5 +21,23 @@ public class Pawn extends Figure {
         return coordinates;
     }
 
+    @Override
+    protected ArrayList<Coordinate> checkingEmptinessSquare(ArrayList<Coordinate> coordinates, Board board) {
+        coordinates = boundaryOverrunCheck(coordinates);
+        ArrayList<Coordinate> returnedCoordinates = new ArrayList<>();
+
+        for(Coordinate cord: coordinates){
+            if(cord.getX() != this.coordinate.getX() && board.getFigure(cord.getY(), cord.getX()) != null){
+                if(board.getFigure(cord.getY(), cord.getX()).getColor()){
+                    returnedCoordinates.add(cord);
+                }
+            } else if(cord.getX() == this.coordinate.getX() && board.getFigure(cord.getY(), cord.getX()) == null) {
+                returnedCoordinates.add(cord);
+            }
+        }
+
+        return returnedCoordinates;
+    }
+
     //Пешка
 }
