@@ -13,9 +13,16 @@ public class PawnMove implements MovePattern{
         ArrayList<Coordinate> coordinates = new ArrayList<>();
         Coordinate figureCoordinate = figure.getCoordinate();
 
-        coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, 0));
-        coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, 1));
-        coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, -1));
+        if(figure.getColor()) {
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, 0));
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, 1));
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, -1));
+        }
+        else{
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, 0));
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, 1));
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, -1));
+        }
 
         coordinates = existenceMove(coordinates, figure, board);
 
