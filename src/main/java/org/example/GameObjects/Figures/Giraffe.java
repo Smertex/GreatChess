@@ -20,10 +20,8 @@ public class Giraffe extends Figure {
         compositeMove.addMovePatterns(new RookMove());
         compositeMove.addMovePatterns(new ElephantMove());
         compositeMove.addMovePatterns(new HorseMove());
-        ArrayList<Coordinate> coordinates = compositeMove.coordinatesComposite(this.coordinate);
-        coordinates = checkingEmptinessSquare(coordinates, board);
 
-        return coordinates;
+        return compositeMove.coordinatesComposite(this, board);
     }
 
     //Жираф

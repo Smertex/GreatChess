@@ -19,10 +19,8 @@ public class Vizier extends Figure {
         CompositeMove compositeMove = new CompositeMove();
         compositeMove.addMovePatterns(new ElephantMove());
         compositeMove.addMovePatterns(new HorseMove());
-        ArrayList<Coordinate> coordinates = compositeMove.coordinatesComposite(this.coordinate);
-        coordinates = checkingEmptinessSquare(coordinates, board);
 
-        return coordinates;
+        return compositeMove.coordinatesComposite(this, board);
     }
 
     //Визирь

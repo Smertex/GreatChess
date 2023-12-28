@@ -15,28 +15,8 @@ public class Pawn extends Figure {
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new PawnMove();
-        ArrayList<Coordinate> coordinates =  new ArrayList<>(movePattern.checkingMoves(this.coordinate));
-        coordinates = checkingEmptinessSquare(coordinates, board);
 
-        return coordinates;
-    }
-
-    @Override
-    protected ArrayList<Coordinate> checkingEmptinessSquare(ArrayList<Coordinate> coordinates, Board board) {
-        coordinates = boundaryOverrunCheck(coordinates);
-        ArrayList<Coordinate> returnedCoordinates = new ArrayList<>();
-
-        for(Coordinate cord: coordinates){
-            if(board.getFigure(cord.getY(), cord.getX()) != null && cord.getX() != this.coordinate.getX()){
-                if(board.getFigure(cord.getY(), cord.getX()).getColor() != this.color){
-                    returnedCoordinates.add(cord);
-                }
-            } else if(cord.getX() == this.coordinate.getX() && board.getFigure(cord.getY(), cord.getX()) == null) {
-                returnedCoordinates.add(cord);
-            }
-        }
-
-        return returnedCoordinates;
+        return new ArrayList<>(movePattern.checkingMoves(this, board));
     }
 
     //Пешка

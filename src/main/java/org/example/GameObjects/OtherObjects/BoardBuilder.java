@@ -4,7 +4,6 @@ import org.example.GameObjects.Figures.*;
 import org.example.GameObjects.Figures.FuguresUtils.Coordinate;
 
 public class BoardBuilder {
-
     public Figure[][] returnedBoard(){
         Figure[][] board = new Figure[10][10];
 
@@ -34,7 +33,7 @@ public class BoardBuilder {
         Figure vehicleB1 = new FightingVehicle(false, new Coordinate(8, 4));
         Figure vehicleB2 = new FightingVehicle(false, new Coordinate(8, 5));
 
-        Figure testFigure = new Pawn(true, new Coordinate(6, 2));
+        Figure testFigure = new Pawn(true, new Coordinate(7, 2));
 
         board = new Figure[][]{
                 {rookW1, horseW1, elephantW1, vizierW, giraffeW, kingW, queenW, elephantW2, horseW2, rookW2},

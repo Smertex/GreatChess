@@ -19,10 +19,8 @@ public class FightingVehicle extends Figure {
         CompositeMove compositeMove = new CompositeMove();
         compositeMove.addMovePatterns(new RookMove());
         compositeMove.addMovePatterns(new HorseMove());
-        ArrayList<Coordinate> coordinates = compositeMove.coordinatesComposite(this.coordinate);
-        coordinates = checkingEmptinessSquare(coordinates, board);
 
-        return coordinates;
+        return compositeMove.coordinatesComposite(this, board);
     }
 
 

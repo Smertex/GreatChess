@@ -14,10 +14,8 @@ public class Elephant extends Figure {
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new ElephantMove();
-        ArrayList<Coordinate> coordinates = movePattern.checkingMoves(coordinate);
-        coordinates = checkingEmptinessSquare(coordinates, board);
 
-        return coordinates;
+        return movePattern.checkingMoves(this, board);
     }
     //Слон
 }
