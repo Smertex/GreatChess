@@ -10,8 +10,13 @@ public class CompositeMove {
     public void addMovePatterns(MovePattern movePattern){
         this.movePatterns.add(movePattern);
     }
-    public ArrayList<Coordinate> coordinates(){
-        //Логика создания всех ходов чот-то там
-        return null;
+    public ArrayList<Coordinate> coordinatesComposite(Coordinate coordinate){
+        ArrayList<Coordinate> coordinates = new ArrayList<>();
+
+        for (MovePattern mp: movePatterns){
+            coordinates.addAll(mp.checkingMoves(coordinate));
+        }
+
+        return coordinates;
     }
 }

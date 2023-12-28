@@ -11,12 +11,13 @@ public class Elephant extends Figure {
     public Elephant(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
     }
-
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new ElephantMove();
+        ArrayList<Coordinate> coordinates = movePattern.checkingMoves(coordinate);
+        coordinates = checkingEmptinessSquare(coordinates, board);
 
-        return null;
+        return coordinates;
     }
     //Слон
 }

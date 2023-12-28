@@ -1,6 +1,9 @@
 package org.example.GameObjects.Figures;
 
 import org.example.GameObjects.Figures.FuguresUtils.Coordinate;
+import org.example.GameObjects.Figures.LinkersMove.HorseMove;
+import org.example.GameObjects.Figures.LinkersMove.KingMove;
+import org.example.GameObjects.Figures.LinkersMove.MovePattern;
 import org.example.GameObjects.OtherObjects.Board;
 
 import java.util.ArrayList;
@@ -12,7 +15,11 @@ public class King extends Figure {
 
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
-        return null;
+        MovePattern movePattern = new KingMove();
+        ArrayList<Coordinate> coordinates = movePattern.checkingMoves(this.coordinate);
+        coordinates = checkingEmptinessSquare(coordinates, board);
+
+        return coordinates;
     }
 
 

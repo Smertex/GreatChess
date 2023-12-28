@@ -14,10 +14,10 @@ public class Rook extends Figure {
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new RookMove();
+        ArrayList<Coordinate> coordinates = movePattern.checkingMoves(coordinate);
+        coordinates = checkingEmptinessSquare(coordinates, board);
 
-        return new ArrayList<>(movePattern.checkingMoves(this.coordinate));
+        return coordinates;
     }
-
-
     //Ладья
 }

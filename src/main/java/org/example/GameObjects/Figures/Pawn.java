@@ -21,10 +21,5 @@ public class Pawn extends Figure {
         return coordinates;
     }
 
-    @Override
-    public ArrayList<Coordinate> checkingEmptinessSquare(ArrayList<Coordinate> coordinates, Board board) {
-        return null;
-    }
-
     //Пешка
 }

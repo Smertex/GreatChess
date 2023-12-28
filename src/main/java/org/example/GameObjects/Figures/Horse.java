@@ -15,8 +15,8 @@ public class Horse extends Figure {
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new HorseMove();
-        ArrayList<Coordinate> coordinates = new ArrayList<>();
-        coordinates = movePattern.checkingMoves(this.coordinate);
+        ArrayList<Coordinate> coordinates = movePattern.checkingMoves(this.coordinate);
+        coordinates = checkingEmptinessSquare(coordinates, board);
 
         return coordinates;
     }
