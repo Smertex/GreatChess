@@ -16,7 +16,7 @@ public class CompositeMove {
         ArrayList<Coordinate> coordinates = new ArrayList<>();
 
         for (MovePattern mp: movePatterns){
-            coordinates.addAll(mp.checkingMoves(figure, board));
+            coordinates.addAll(mp.checkingExistenceMoves(figure, board));
         }
 
         return coordinates;

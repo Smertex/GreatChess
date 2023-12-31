@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class RookMove implements MovePattern {
 
     @Override
-    public ArrayList<Coordinate> checkingMoves(Figure figure, Board board) {
+    public ArrayList<Coordinate> checkingExistenceMoves(Figure figure, Board board) {
         ArrayList<Coordinate> coordinates = new ArrayList<>();
         Coordinate figureCoordinate = figure.getCoordinate();
 
@@ -21,15 +21,17 @@ public class RookMove implements MovePattern {
             coordinates.add(Shift.shiftCoordinate(figureCoordinate, 0, -i));
         }
 
-        coordinates = existenceMove(coordinates, figure, board);
+        coordinates = moveBuilder(coordinates, figure, board);
 
         return coordinates;
     }
 
     @Override
-    public ArrayList<Coordinate> existenceMove(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
+    public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
         coordinates = boundaryOverrunCheck(coordinates);
-        ArrayList<Coordinate> returnedCoordinates = coordinates;
+        ArrayList<Coordinate> returnedCoordinates = new ArrayList<>();
+
+
 
         return returnedCoordinates;
     }

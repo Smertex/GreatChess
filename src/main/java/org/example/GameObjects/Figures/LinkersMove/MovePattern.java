@@ -7,8 +7,8 @@ import org.example.GameObjects.OtherObjects.Board;
 import java.util.ArrayList;
 
 public interface MovePattern {
-    ArrayList<Coordinate> checkingMoves(Figure figure, Board board);
-    ArrayList<Coordinate> existenceMove(ArrayList<Coordinate> coordinates, Figure figure, Board board);
+    ArrayList<Coordinate> checkingExistenceMoves(Figure figure, Board board);
+    ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board);
     default ArrayList<Coordinate> boundaryOverrunCheck(ArrayList<Coordinate> coordinates){
         ArrayList<Coordinate> returnedCoordinates = new ArrayList<>();
 

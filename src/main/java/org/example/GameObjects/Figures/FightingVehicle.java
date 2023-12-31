@@ -23,6 +23,11 @@ public class FightingVehicle extends Figure {
         return compositeMove.coordinatesComposite(this, board);
     }
 
+    @Override
+    public ArrayList<Coordinate> imaginaryMoves(Board board) {
+        return null;
+    }
+
 
     //Боевая машина
 }

@@ -17,6 +17,7 @@ public abstract class Figure {
         this.coordinate = coordinate;
     }
     public abstract ArrayList<Coordinate> existenceMove(Board board);
+    public abstract ArrayList<Coordinate> imaginaryMoves(Board board);
     public void setCoordinate(Coordinate coordinate) {
         this.coordinate = coordinate;
     }

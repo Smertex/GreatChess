@@ -24,5 +24,10 @@ public class Giraffe extends Figure {
         return compositeMove.coordinatesComposite(this, board);
     }
 
+    @Override
+    public ArrayList<Coordinate> imaginaryMoves(Board board) {
+        return null;
+    }
+
     //Жираф
 }

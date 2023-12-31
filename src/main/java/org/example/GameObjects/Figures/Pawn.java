@@ -16,7 +16,12 @@ public class Pawn extends Figure {
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new PawnMove();
 
-        return new ArrayList<>(movePattern.checkingMoves(this, board));
+        return new ArrayList<>(movePattern.checkingExistenceMoves(this, board));
+    }
+
+    @Override
+    public ArrayList<Coordinate> imaginaryMoves(Board board) {
+        return null;
     }
 
     //Пешка

@@ -23,6 +23,11 @@ public class Queen extends Figure {
 
     }
 
+    @Override
+    public ArrayList<Coordinate> imaginaryMoves(Board board) {
+        return null;
+    }
+
 
     //Ферзь
 }

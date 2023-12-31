@@ -23,5 +23,10 @@ public class Vizier extends Figure {
         return compositeMove.coordinatesComposite(this, board);
     }
 
+    @Override
+    public ArrayList<Coordinate> imaginaryMoves(Board board) {
+        return null;
+    }
+
     //Визирь
 }

@@ -15,9 +15,14 @@ public class King extends Figure {
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new KingMove();
-        ArrayList<Coordinate> coordinates = movePattern.checkingMoves(this, board);
+        ArrayList<Coordinate> coordinates = movePattern.checkingExistenceMoves(this, board);
 
         return coordinates;
+    }
+
+    @Override
+    public ArrayList<Coordinate> imaginaryMoves(Board board) {
+        return null;
     }
 
 

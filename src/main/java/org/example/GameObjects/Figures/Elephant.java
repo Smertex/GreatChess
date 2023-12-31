@@ -15,7 +15,12 @@ public class Elephant extends Figure {
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new ElephantMove();
 
-        return movePattern.checkingMoves(this, board);
+        return movePattern.checkingExistenceMoves(this, board);
+    }
+
+    @Override
+    public ArrayList<Coordinate> imaginaryMoves(Board board) {
+        return null;
     }
     //Слон
 }
