@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class King extends Figure {
     public King(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
+        setImage('♔');
     }
 
     @Override

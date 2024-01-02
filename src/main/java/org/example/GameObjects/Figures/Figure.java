@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public abstract class Figure {
     //true - white figure, false - black figure
     protected final Boolean color;
+    protected char image;
     protected Coordinate coordinate;
     public Figure(Boolean color, Coordinate coordinate){
         this.color = color;
@@ -26,5 +27,11 @@ public abstract class Figure {
     }
     public Boolean getColor() {
         return color;
+    }
+    protected void setImage(char symbol){
+        this.image = symbol;
+    }
+    public char getImage() {
+        return this.image;
     }
 }

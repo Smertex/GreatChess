@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class Giraffe extends Figure {
     public Giraffe(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
+        setImage('G');
     }
 
     @Override

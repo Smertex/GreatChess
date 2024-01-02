@@ -39,7 +39,7 @@ public class BoardBuilder {
                 {rookW1, horseW1, elephantW1, vizierW, giraffeW, kingW, queenW, elephantW2, horseW2, rookW2},
                 {null, null, null, null, vehicleW1, vehicleW2, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
-                {null, null, testFigure1, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},

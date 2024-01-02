@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class FightingVehicle extends Figure {
     public FightingVehicle(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
+        setImage('F');
     }
 
     @Override

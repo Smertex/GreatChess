@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class Rook extends Figure {
     public Rook(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
+        setImage('♖');
     }
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {

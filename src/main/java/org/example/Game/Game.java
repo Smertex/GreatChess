@@ -12,7 +12,6 @@ public class Game {
     private final Player secondPlayer;
     private final LogicGame logicGame;
     private Boolean swapMove = true;
-
     public void definitionPlayer() {
         if (swapMove) {
             //Ход игрока с белыми фигурами
@@ -108,5 +107,8 @@ public class Game {
         this.board = new Board();
 
         this.logicGame = new LogicGame(board);
+    }
+    public Board getBoard() {
+        return board;
     }
 }

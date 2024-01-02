@@ -12,6 +12,7 @@ import java.util.ArrayList;
 public class Vizier extends Figure {
     public Vizier(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
+        setImage('V');
     }
 
     @Override
