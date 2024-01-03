@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Pawn extends Figure {
     public Pawn(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
-        setImage('♙');
+        setImage('♟');
     }
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {

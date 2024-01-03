@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Queen extends Figure {
     public Queen(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
-        setImage('♕');
+        setImage('♛');
     }
 
     @Override

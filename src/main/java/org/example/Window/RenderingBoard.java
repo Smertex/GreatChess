@@ -33,8 +33,8 @@ public class RenderingBoard {
                 if(board.getFigure(i, j) != null){
                     Text image = new Text(String.valueOf(board.getFigure(i, j).getImage()));
                     image.setFont(Font.font((double) sizeSquare / 2));
-                    Figure figure = board.getFigure(i, j);
 
+                    Figure figure = board.getFigure(i, j);
                     image.setOnMouseClicked(e -> {
                         ClickReactions.RenderingExistenceMoveSquare(board, boardGUI, figure, sizeSquare);
                     });

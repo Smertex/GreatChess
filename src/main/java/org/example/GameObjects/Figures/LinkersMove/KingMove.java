@@ -2,6 +2,7 @@ package org.example.GameObjects.Figures.LinkersMove;
 
 import org.example.GameObjects.Figures.Figure;
 import org.example.GameObjects.Figures.FuguresUtils.Coordinate;
+import org.example.GameObjects.Figures.FuguresUtils.DeleteImpossibleCoordinates;
 import org.example.GameObjects.Figures.FuguresUtils.Shift;
 import org.example.GameObjects.OtherObjects.Board;
 
@@ -29,7 +30,7 @@ public class KingMove implements MovePattern{
 
     @Override
     public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
-        coordinates = boundaryOverrunCheck(coordinates);
+        coordinates = DeleteImpossibleCoordinates.boundaryOverrunCheck(coordinates);
         ArrayList<Coordinate> returnedCoordinates = coordinates;
 
         return returnedCoordinates;

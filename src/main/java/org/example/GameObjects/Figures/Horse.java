@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class Horse extends Figure {
     public Horse(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
-        setImage('♘');
+        setImage('♞');
     }
 
     @Override
