@@ -27,13 +27,14 @@ public class BoardBuilder {
         Figure elephantB1 = new Elephant(false, new Coordinate(9, 2));
         Figure elephantB2 = new Elephant(false, new Coordinate(9, 7));
         Figure vizierB = new Vizier(false, new Coordinate(9, 6));
-        Figure giraffeB = new Giraffe(false, new Coordinate(0, 5));
+        Figure giraffeB = new Giraffe(false, new Coordinate(9, 5));
         Figure kingB = new King(false, new Coordinate(9, 4));
         Figure queenB = new Queen(false, new Coordinate(9, 3));
         Figure vehicleB1 = new FightingVehicle(false, new Coordinate(8, 4));
         Figure vehicleB2 = new FightingVehicle(false, new Coordinate(8, 5));
 
         Figure testFigure1 = new Elephant(true, new Coordinate(3, 2));
+        Figure testFigure2 = new Pawn(false, new Coordinate(2, 2));
 
         board = new Figure[][]{
                 {rookW1, horseW1, elephantW1, vizierW, giraffeW, kingW, queenW, elephantW2, horseW2, rookW2},

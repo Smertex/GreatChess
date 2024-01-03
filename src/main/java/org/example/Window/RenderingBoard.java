@@ -7,8 +7,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import org.example.GameObjects.Figures.Figure;
 import org.example.GameObjects.Figures.FuguresUtils.Coordinate;
 import org.example.GameObjects.OtherObjects.Board;
+
 
 public class RenderingBoard {
     public GridPane boardRendering(Board board){
@@ -31,7 +33,11 @@ public class RenderingBoard {
                 if(board.getFigure(i, j) != null){
                     Text image = new Text(String.valueOf(board.getFigure(i, j).getImage()));
                     image.setFont(Font.font((double) sizeSquare / 2));
+                    Figure figure = board.getFigure(i, j);
 
+                    image.setOnMouseClicked(e -> {
+                        ClickReactions.RenderingExistenceMoveSquare(board, boardGUI, figure, sizeSquare);
+                    });
 
                     if(board.getFigure(i, j).getColor()){
                         image.setFill(Color.WHITE);
