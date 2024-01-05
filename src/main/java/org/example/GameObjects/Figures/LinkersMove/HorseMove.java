@@ -29,11 +29,11 @@ public class HorseMove implements MovePattern {
         coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, -2));
 
         DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
-        return deleteImpossibleCoordinates.checkSquareForFigure(coordinates, figure, board);
+        return deleteImpossibleCoordinates.boundaryOverrunCheck(coordinates);
     }
 
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Figure figure, Board board) {
-        return checkingExistenceMoves(figure, board);
+        return moveBuilder(new ArrayList<>(), figure, board);
     }
 }

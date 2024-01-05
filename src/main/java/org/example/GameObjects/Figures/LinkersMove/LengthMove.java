@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class LengthMove {
     public ArrayList<Coordinate> moveInTarget(Coordinate basicCoordinate, Coordinate stepCoordinates, Board board){
         ArrayList<Coordinate> coordinates = new ArrayList<>();
-        Boolean color = board.getFigure(basicCoordinate.getY(), basicCoordinate.getX()).getColor();
 
         int stepY = stepCoordinates.getY();
         int stepX = stepCoordinates.getX();
@@ -19,9 +18,6 @@ public class LengthMove {
                 shift.getX() <= 9 && shift.getX() >= 0){
 
             if(board.getFigure(shift.getY(), shift.getX()) != null){
-                if(board.getFigure(shift.getY(), shift.getX()).getColor() == color){
-                    break;
-                }
                 coordinates.add(shift);
                 break;
             }

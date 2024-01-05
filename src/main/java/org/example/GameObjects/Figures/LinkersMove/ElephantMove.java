@@ -11,7 +11,7 @@ public class ElephantMove implements MovePattern {
     public ArrayList<Coordinate> checkingExistenceMoves(Figure figure, Board board) {
         ArrayList<Coordinate> coordinates = moveBuilder(new ArrayList<>(), figure, board);
         DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
-        coordinates = deleteImpossibleCoordinates.boundaryOverrunCheck(coordinates);
+        coordinates = deleteImpossibleCoordinates.checkFriendlyAttack(coordinates, figure, board);
 
         return coordinates;
     }
@@ -35,6 +35,6 @@ public class ElephantMove implements MovePattern {
 
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Figure figure, Board board) {
-        return checkingExistenceMoves(figure, board);
+        return moveBuilder(new ArrayList<>(), figure, board);
     }
 }

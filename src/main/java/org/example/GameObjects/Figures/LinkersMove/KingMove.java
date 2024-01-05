@@ -39,18 +39,13 @@ public class KingMove implements MovePattern{
         coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, -1));
 
         DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
-        coordinates = deleteImpossibleCoordinates.checkSquareForFigure(coordinates, figure, board);
+        coordinates = deleteImpossibleCoordinates.boundaryOverrunCheck(coordinates);
 
         return coordinates;
     }
 
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Figure figure, Board board) {
-        ArrayList<Coordinate> coordinates = moveBuilder(new ArrayList<>(), figure, board);
-
-        DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
-        coordinates = deleteImpossibleCoordinates.checkSquareForFigure(coordinates, figure, board);
-
-        return coordinates;
+        return moveBuilder(new ArrayList<>(), figure, board);
     }
 }
