@@ -9,4 +9,5 @@ import java.util.ArrayList;
 public interface MovePattern {
     ArrayList<Coordinate> checkingExistenceMoves(Figure figure, Board board);
     ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board);
+    ArrayList<Coordinate> imaginaryMoves(Figure figure, Board board);
 }

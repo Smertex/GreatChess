@@ -2,7 +2,6 @@ package org.example.GameObjects.Figures.LinkersMove;
 
 import org.example.GameObjects.Figures.Figure;
 import org.example.GameObjects.Figures.FuguresUtils.Coordinate;
-import org.example.GameObjects.Figures.FuguresUtils.DeleteImpossibleCoordinates;
 import org.example.GameObjects.Figures.FuguresUtils.Shift;
 import org.example.GameObjects.OtherObjects.Board;
 
@@ -29,19 +28,12 @@ public class HorseMove implements MovePattern {
     }
     @Override
     public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
-        coordinates = DeleteImpossibleCoordinates.boundaryOverrunCheck(coordinates);
-        ArrayList<Coordinate> returnedCoordinates = new ArrayList<>();
+        DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
+        return deleteImpossibleCoordinates.checkSquareForFigure(coordinates, figure, board);
+    }
 
-        for(Coordinate cord: coordinates){
-            if (board.getFigure(cord.getY(), cord.getX()) != null) {
-                if(board.getFigure(cord.getY(), cord.getX()).getColor() != figure.getColor()){
-                    returnedCoordinates.add(cord);
-                }
-            } else {
-                returnedCoordinates.add(cord);
-            }
-
-        }
-        return  returnedCoordinates;
+    @Override
+    public ArrayList<Coordinate> imaginaryMoves(Figure figure, Board board) {
+        return checkingExistenceMoves(figure, board);
     }
 }

@@ -27,7 +27,7 @@ public class Giraffe extends Figure {
 
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Board board) {
-        return null;
+        return existenceMove(board);
     }
 
     //Жираф

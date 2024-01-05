@@ -18,10 +18,11 @@ public class Rook extends Figure {
 
         return movePattern.checkingExistenceMoves(this, board);
     }
-
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Board board) {
-        return null;
+        MovePattern movePattern = new RookMove();
+
+        return movePattern.imaginaryMoves(this, board);
     }
     //Ладья
 }

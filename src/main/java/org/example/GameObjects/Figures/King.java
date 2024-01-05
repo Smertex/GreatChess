@@ -8,24 +8,33 @@ import org.example.GameObjects.OtherObjects.Board;
 import java.util.ArrayList;
 
 public class King extends Figure {
+    private boolean shah;
     public King(Boolean color, Coordinate coordinate) {
         super(color, coordinate);
         setImage('♚');
+        this.shah = false;
     }
 
     @Override
     public ArrayList<Coordinate> existenceMove(Board board) {
         MovePattern movePattern = new KingMove();
-        ArrayList<Coordinate> coordinates = movePattern.checkingExistenceMoves(this, board);
 
-        return coordinates;
+        return movePattern.checkingExistenceMoves(this, board);
     }
 
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Board board) {
-        return null;
+        MovePattern movePattern = new KingMove();
+
+        return movePattern.imaginaryMoves(this, board);
     }
 
+    public void setShah(boolean shah) {
+        this.shah = shah;
+    }
+    public boolean getShah() {
+        return this.shah;
+    }
 
     //Король
 }

@@ -22,7 +22,9 @@ public class Horse extends Figure {
 
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Board board) {
-        return null;
+        MovePattern movePattern = new HorseMove();
+
+        return movePattern.imaginaryMoves(this, board);
     }
 
 

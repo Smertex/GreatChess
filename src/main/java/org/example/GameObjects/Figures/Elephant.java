@@ -18,10 +18,11 @@ public class Elephant extends Figure {
 
         return movePattern.checkingExistenceMoves(this, board);
     }
-
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Board board) {
-        return null;
+        MovePattern movePattern = new ElephantMove();
+
+        return movePattern.imaginaryMoves(this, board);
     }
     //Слон
 }
