@@ -70,8 +70,8 @@ public class BoardBuilder {
         Figure kingW = new King(true, new Coordinate(4, 3));
         Figure pawnW1 = new Pawn(true, new Coordinate(3, 4));
 
-        Figure horseB1 = new Horse(false, new Coordinate(3,2));
-        Figure pawnB1 = new Pawn(false, new Coordinate(5, 1));
+        Figure rookW1 = new Rook(true, new Coordinate(6,8));
+        Figure horseB1 = new Horse(false, new Coordinate(5, 2));
         Figure elephantB1 = new Elephant(false, new Coordinate(8, 8));
         Figure kingB = new King(false, new Coordinate(6,3));
 
@@ -81,8 +81,8 @@ public class BoardBuilder {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, pawnW1, null, null, null, null, null},
                 {null, null, null, kingW, null, null, null, null, null, null},
-                {null, pawnB1, null, null, null, null, null, null, null, null},
-                {null, null, null, kingB, null, null, null, null, null, null},
+                {null, null, horseB1, null, null, null, null, null, null, null},
+                {null, null, null, kingB, null, null, null, null, rookW1, null},
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, elephantB1, null},
                 {null, null, null, null, null, null, null, null, null, null},

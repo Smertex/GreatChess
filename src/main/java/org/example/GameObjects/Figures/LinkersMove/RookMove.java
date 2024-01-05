@@ -10,7 +10,15 @@ public class RookMove implements MovePattern {
 
     @Override
     public ArrayList<Coordinate> checkingExistenceMoves(Figure figure, Board board) {
-        ArrayList<Coordinate> coordinates = new ArrayList<>();
+        ArrayList<Coordinate> coordinates = moveBuilder(new ArrayList<>(), figure, board);
+        DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
+        coordinates = deleteImpossibleCoordinates.boundaryOverrunCheck(coordinates);
+
+        return coordinates;
+    }
+
+    @Override
+    public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
         LengthMove lengthMove = new LengthMove();
         Coordinate figureCoordinate = figure.getCoordinate();
 
@@ -19,11 +27,7 @@ public class RookMove implements MovePattern {
         coordinates.addAll(lengthMove.moveInTarget(figureCoordinate, new Coordinate(0, 1), board));
         coordinates.addAll(lengthMove.moveInTarget(figureCoordinate, new Coordinate(0, -1), board));
 
-        return coordinates;
-    }
 
-    @Override
-    public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
         DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
         coordinates = deleteImpossibleCoordinates.boundaryOverrunCheck(coordinates);
 

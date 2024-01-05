@@ -10,7 +10,13 @@ import java.util.ArrayList;
 public class HorseMove implements MovePattern {
     @Override
     public ArrayList<Coordinate> checkingExistenceMoves(Figure figure, Board board) {
-        ArrayList<Coordinate> coordinates = new ArrayList<>();
+        ArrayList<Coordinate> coordinates = moveBuilder(new ArrayList<>(), figure, board);
+
+        DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
+        return deleteImpossibleCoordinates.checkSquareForFigure(coordinates, figure, board);
+    }
+    @Override
+    public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
         Coordinate figureCoordinate = figure.getCoordinate();
 
         coordinates.add(Shift.shiftCoordinate(figureCoordinate, 2, 1));
@@ -22,12 +28,6 @@ public class HorseMove implements MovePattern {
         coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, -2));
         coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, -2));
 
-        coordinates = moveBuilder(coordinates, figure, board);
-
-        return coordinates;
-    }
-    @Override
-    public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
         DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
         return deleteImpossibleCoordinates.checkSquareForFigure(coordinates, figure, board);
     }

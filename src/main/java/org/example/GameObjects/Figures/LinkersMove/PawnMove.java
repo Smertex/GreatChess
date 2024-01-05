@@ -10,26 +10,8 @@ import java.util.ArrayList;
 public class PawnMove implements MovePattern{
     @Override
     public ArrayList<Coordinate> checkingExistenceMoves(Figure figure, Board board) {
-        ArrayList<Coordinate> coordinates = new ArrayList<>();
-        Coordinate figureCoordinate = figure.getCoordinate();
+        ArrayList<Coordinate> coordinates = moveBuilder(new ArrayList<>(), figure, board);
 
-        if(figure.getColor()) {
-            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, 0));
-            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, 1));
-            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, -1));
-        }
-        else{
-            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, 0));
-            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, 1));
-            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, -1));
-        }
-
-        coordinates = moveBuilder(coordinates, figure, board);
-
-        return coordinates;
-    }
-    @Override
-    public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
         DeleteImpossibleCoordinates deleteImpossibleCoordinates = new DeleteImpossibleCoordinates();
         coordinates = deleteImpossibleCoordinates.boundaryOverrunCheck(coordinates);
         ArrayList<Coordinate> returnedCoordinates = new ArrayList<>();
@@ -47,6 +29,23 @@ public class PawnMove implements MovePattern{
         }
 
         return returnedCoordinates;
+    }
+    @Override
+    public ArrayList<Coordinate> moveBuilder(ArrayList<Coordinate> coordinates, Figure figure, Board board) {
+        Coordinate figureCoordinate = figure.getCoordinate();
+
+        if(figure.getColor()) {
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, 0));
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, 1));
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, 1, -1));
+        }
+        else{
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, 0));
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, 1));
+            coordinates.add(Shift.shiftCoordinate(figureCoordinate, -1, -1));
+        }
+
+        return coordinates;
     }
     @Override
     public ArrayList<Coordinate> imaginaryMoves(Figure figure, Board board) {
