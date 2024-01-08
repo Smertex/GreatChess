@@ -1,5 +1,6 @@
 package org.example.Model.Game;
 
+import org.example.Model.Figures.Figure;
 import org.example.Model.Figures.FuguresUtils.Coordinate;
 import org.example.Model.Figures.King;
 import org.example.Model.OtherObjects.Board;
@@ -21,9 +22,8 @@ public class Game {
         if(!checkShah()) {
             board.shiftFigure(basicCoordinate, targetCoordinate);
         } else {
+            System.out.println("Зашел");
             board.shiftFigure(basicCoordinate, targetCoordinate);
-            System.out.println("Шах");
-            availableMoves();
         }
         definitionPlayer();
     }
@@ -35,18 +35,22 @@ public class Game {
         swapMove = !swapMove;
         currentPlayer = swapMove ? (firstPlayer.isColor() ? firstPlayer : secondPlayer) : (firstPlayer.isColor() ? secondPlayer : firstPlayer);
     }
-    private boolean checkShah(){
-        boolean color = currentPlayer.isColor();
+    public boolean checkShah(){
+        boolean color = !currentPlayer.isColor();
+        King king = (King) getKing();
 
+        return king.checkShah(board);
+    }
+    public Figure getKing(){
+        boolean color = !currentPlayer.isColor();
         for(int y = 0; y <= 9; y++){
             for(int x = 0; x <= 9; x++){
                 if(board.getFigure(y, x) instanceof King && board.getFigure(y, x).getColor() != color){
-                    King king = (King) board.getFigure(y, x);
-                    return king.checkShah(board);
+                    return board.getFigure(y, x);
                 }
             }
         }
-        return false;
+        return null;
     }
     private ArrayList<Coordinate> availableMoves(){
         return null;

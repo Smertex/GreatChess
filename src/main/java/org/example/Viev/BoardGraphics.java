@@ -8,7 +8,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import org.example.Controller.ClickController.Observed;
+import org.example.Controller.GameController.GameController;
 import org.example.Model.Figures.Figure;
 import org.example.Model.Figures.FuguresUtils.Coordinate;
 import org.example.Model.OtherObjects.Board;
@@ -22,11 +22,11 @@ public class BoardGraphics{
         this.sizeSquare = sizeSquare;
         this.boardGUI = new GridPane();
     }
-    public void createGridPane(Board board, Observed observed){
-        rendering(board);
-        setClick(board, observed);
+    public void createGridPane(Board board, GameController gameController){
+        rendering(board, gameController);
+        setClick(board, gameController);
     }
-    private void rendering(Board board){
+    private void rendering(Board board, GameController gameController){
         for(int i = 0; i <= 9; i++){
             for(int j = 0; j <= 9; j++){
                 Rectangle rectangle = new Rectangle(sizeSquare, sizeSquare);
@@ -39,6 +39,12 @@ public class BoardGraphics{
                 boardGUI.add(rectangle, j, i);
 
                 if (board.getFigure(i, j) != null) {
+                    if(board.getFigure(i, j) == gameController.getKing() && gameController.checkShah()){
+                        Rectangle shahSquare = new Rectangle(sizeSquare, sizeSquare);
+                        shahSquare.setFill(Color.rgb(122, 3, 3));
+                        shahSquare.setOpacity(0.6);
+                        boardGUI.add(shahSquare, j, i);
+                    }
                     Text image = new Text(String.valueOf(board.getFigure(i, j).getImage()));
                     image.setFont(Font.font((double) sizeSquare / 2));
 
@@ -59,20 +65,20 @@ public class BoardGraphics{
             }
         }
     }
-    private void setClick(Board board, Observed observed){
+    private void setClick(Board board, GameController gameController){
         boardGUI.getChildren().forEach(event -> {
             event.setOnMouseClicked(e -> {
                 int column = boardGUI.getColumnIndex(event);
                 int row = boardGUI.getRowIndex(event);
 
-                if(observed.availableSquare(column, row)){
-                    createGridPane(board, observed);
-                    renderingMoveOnClick(board, observed.getFigure(column, row), observed);
+                if(gameController.availableSquare(column, row)){
+                    createGridPane(board, gameController);
+                    renderingMoveOnClick(board, gameController.getFigure(column, row), gameController);
                 }
            });
         });
     }
-    private void renderingMoveOnClick(Board board, Figure figure, Observed observed) {
+    private void renderingMoveOnClick(Board board, Figure figure, GameController gameController) {
         ArrayList<Coordinate> coordinates = figure.existenceMove(board);
 
         for (Coordinate cord : coordinates) {
@@ -86,8 +92,8 @@ public class BoardGraphics{
             }
             boardGUI.add(existenceMoveSquare, cord.getX(), cord.getY());
             existenceMoveSquare.setOnMouseClicked(e -> {
-                observed.shiftFigure(figure.getCoordinate(), cord);
-                createGridPane(board, observed);
+                gameController.shiftFigure(figure.getCoordinate(), cord);
+                createGridPane(board, gameController);
             });
         }
     }
