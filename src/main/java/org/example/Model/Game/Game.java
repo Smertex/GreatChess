@@ -1,91 +1,67 @@
 package org.example.Model.Game;
 
 import org.example.Model.Figures.FuguresUtils.Coordinate;
+import org.example.Model.Figures.King;
+import org.example.Model.OtherObjects.Board;
 import org.example.Model.Players.Player;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Game {
     private final Player firstPlayer;
     private final Player secondPlayer;
-    private final LogicGame logicGame;
+    private Player currentPlayer;
     private Boolean swapMove = true;
+    private Board board;
     public void actionPlayer(Coordinate basicCoordinate, Coordinate targetCoordinate){
         definitionPlayer();
-        logicGame.move(basicCoordinate, targetCoordinate);
+    }
+    public void shiftFigure(Coordinate basicCoordinate, Coordinate targetCoordinate){
+        if(!checkShah()) {
+            board.shiftFigure(basicCoordinate, targetCoordinate);
+        } else {
+            board.shiftFigure(basicCoordinate, targetCoordinate);
+            System.out.println("Шах");
+            availableMoves();
+        }
+        definitionPlayer();
+    }
+    public boolean choiceFigure(Coordinate figureCoordinate){
+        return board.getFigure(figureCoordinate.getY(), figureCoordinate.getX()) != null
+                && board.getFigure(figureCoordinate.getY(), figureCoordinate.getX()).getColor() == currentPlayer.isColor();
     }
     private void definitionPlayer() {
-        Player currentPlayer = swapMove ? (firstPlayer.isColor() ? firstPlayer : secondPlayer) : (firstPlayer.isColor() ? secondPlayer : firstPlayer);
-        logicGame.setPlayer(currentPlayer);
         swapMove = !swapMove;
+        currentPlayer = swapMove ? (firstPlayer.isColor() ? firstPlayer : secondPlayer) : (firstPlayer.isColor() ? secondPlayer : firstPlayer);
     }
-    public Game() {
-        Random random = new Random();
-        boolean color = random.nextBoolean();
+    private boolean checkShah(){
+        boolean color = currentPlayer.isColor();
 
-        this.firstPlayer = new Player("Player1", color);
-        this.secondPlayer = new Player("Player2", !color);
-
-        logicGame = new LogicGame();
-    }
-
-    public Game(String name, boolean playerName) {
-        Random random = new Random();
-        boolean color = random.nextBoolean();
-
-        if (playerName) {
-            this.firstPlayer = new Player(name, color);
-            this.secondPlayer = new Player("Player2", !color);
-        } else {
-            this.firstPlayer = new Player("Player1", color);
-            this.secondPlayer = new Player(name, !color);
-        }
-
-        logicGame = new LogicGame();
-    }
-
-    public Game(String name1, String name2) {
-        Random random = new Random();
-        boolean color = random.nextBoolean();
-
-        this.firstPlayer = new Player(name1, color);
-        this.secondPlayer = new Player(name2, !color);
-
-        logicGame = new LogicGame();
-    }
-
-    public Game(String name1, String name2, Boolean colorPlayer, Boolean color) {
-        if (colorPlayer) {
-            this.firstPlayer = new Player(name1, color);
-            this.secondPlayer = new Player(name2, !color);
-        } else {
-            this.firstPlayer = new Player(name1, !color);
-            this.secondPlayer = new Player(name2, color);
-        }
-
-        logicGame = new LogicGame();
-    }
-
-    public Game(String name, boolean playerName, Boolean colorPlayer, Boolean color) {
-
-        if (playerName) {
-            if (colorPlayer) {
-                this.firstPlayer = new Player(name, color);
-                this.secondPlayer = new Player("Player2", !color);
-            } else {
-                this.firstPlayer = new Player(name, !color);
-                this.secondPlayer = new Player("Player2", color);
-            }
-        } else {
-            if (colorPlayer) {
-                this.firstPlayer = new Player("Player1", color);
-                this.secondPlayer = new Player(name, !color);
-            } else {
-                this.firstPlayer = new Player("Player1", !color);
-                this.secondPlayer = new Player(name, color);
+        for(int y = 0; y <= 9; y++){
+            for(int x = 0; x <= 9; x++){
+                if(board.getFigure(y, x) instanceof King && board.getFigure(y, x).getColor() != color){
+                    King king = (King) board.getFigure(y, x);
+                    return king.checkShah(board);
+                }
             }
         }
+        return false;
+    }
+    private ArrayList<Coordinate> availableMoves(){
+        return null;
+    }
+    public Board getBoard(){
+        return this.board;
+    }
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+    public Game(){
+        firstPlayer = new Player("Player 1", true);
+        secondPlayer = new Player("Player 2", false);
+        currentPlayer = firstPlayer;
 
-        logicGame = new LogicGame();
+        board = new Board();
     }
 }
